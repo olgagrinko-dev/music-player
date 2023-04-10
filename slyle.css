@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+}
+
+body {
+    width: 1200px;
+    margin: auto;
+    background-color: #E5E5E5;
+}
+
+.background {
+    width: 1028px;
+    height: 562px;
+    background-color: #454545;
+}
+
+.player {
+    display: flex;
+    flex-direction: row;
+    width: 540px;
+    height: 169px;
+    background-color: #FFFEF8;
+    margin: auto;
+    border-radius: 14px;
+}
+
+.img-wrapper {
+    background-image: url(./assets/thumbnail-img.svg);
+    background-repeat: no-repeat;
+    width: 169px;
+    height: 169px;
+}
+
+.wrapper div {
+    display: flex;
+    flex-direction: row;
+}
+
+.wrapper h1 {
+    font: 700 18px 'Inter';
+    color: #000000;
+    margin-top: 18px;
+    margin-left: 33px;
+}
+
+.img-vector {
+    background-image: url(./assets/Vector.svg);
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    margin-top: 18px;
+    margin-left: 135px;
+}
+
+.wrapper p {
+    font-family: 400 14px 'Inter';
+    color: #454545;
+    margin-top: 5px;
+    margin-left: 33px;
+}
+
+.preview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.img-preview {
+    background-image: url(./assets/preview.svg);
+    background-repeat: no-repeat;
+    width: 257px;
+    height: 3px;
+    margin-top: 25px;
+    margin-left: 33px;
+}
+
+#time {
+    font-family: 400 12px 'Inter';
+    color: #454545; 
+    margin-top: 25px;  
+    margin-left: 16px;
+}
+
+.play {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;  
+}
+
+.img-icon {
+    background-image: url(./assets/Icon.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 35px;
+    margin-left: 33px;
+}
+
+.img-group-1 {
+    background-image: url(./assets/Group\ 1.svg);
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 26px;
+    margin-left: 58px;
+}
+
+.img-play {
+    background-image: url(./assets/Play.svg);
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 26px;
+    margin-left: 34px;
+}
+
+.img-group-2 {
+    background-image: url(./assets/Group\ 2.svg);
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 26px;
+    margin-left: 20px;
+}
+
+.img-like-white {
+    background-image: url(./assets/like-white.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 26px;
+    margin-right: 33px; 
+}
