@@ -8,10 +8,13 @@ const runSong = document.querySelector(`.img-play`);
 const rightSong = document.querySelector(`.img-group-2`);
 
 const aud = document.querySelector(`audio`);
-const name = document.querySelector(`.name`);
+const treak = document.querySelector(`.treak`);
 const artist = document.querySelector(`.artist`);
 const img = document.querySelector(`.img-wrapper`);
 const like = document.querySelector(`.img-like-white`);
+const preview = document.querySelector(`.img-preview`);
+const time = document.getElementById(`time`);
+
 
 let flag = false;
 
@@ -39,23 +42,21 @@ const playList = [
 ]
 
 let currenIndexSong = 0;
+
 runSong.addEventListener(`click`, function () {
     aud.src = playList[currenIndexSong].path;
-    name.innerHTML = playList[currenIndexSong].nameSong;
+    treak.innerHTML = playList[currenIndexSong].nameSong;
     artist.innerHTML = playList[currenIndexSong].artist;
-    img.style = `background-image: url(${playList[currenIndexSong].imgPath});
-    width: 300px;
-    height: 900px;
-    background-size: contain;`
+    img.style = `background-image: url(${playList[currenIndexSong].imgPath});`
 
     if (flag == false) {
         aud.play();
         flag = true;
-        runSong.style = `background-image: url(./assets/play.svg);`
+        runSong.style = `background-image: url(./assets/stop.svg);`
     } else {
         aud.pause();
         flag = false;
-        runSong.style = `background-image: url(./assets/stop.svg);`
+        runSong.style = `background-image: url(./assets/playBtn.png);`
     }
 });
 
@@ -63,30 +64,36 @@ leftSong.addEventListener(`click`, function () {
     if (currenIndexSong == 0) return;
     currenIndexSong--
     aud.src = playList[currenIndexSong].path;
-    name.innerHTML = playList[currenIndexSong].nameSong;
+    treak.innerHTML = playList[currenIndexSong].nameSong;
     artist.innerHTML = playList[currenIndexSong].artist;
-    img.style = `background-image: url(${playList[currenIndexSong].imgPath});
-    width: 300px;
-    height: 700px;
-    background-size: contain;`
+    img.style = `background-image: url(${playList[currenIndexSong].imgPath});`
     aud.play();
+    flag = true;
+    runSong.style = `background-image: url(./assets/stop.svg);`
 });
 
 rightSong.addEventListener(`click`, function () {
     if (currenIndexSong >= playList.length - 1) return;
     currenIndexSong++
     aud.src = playList[currenIndexSong].path;
-    name.innerHTML = playList[currenIndexSong].nameSong;
+    treak.innerHTML = playList[currenIndexSong].nameSong;
     artist.innerHTML = playList[currenIndexSong].artist;
-    img.style = `background-image: url(${playList[currenIndexSong].imgPath});
-    width: 300px;
-    height: 900px;
-    background-size: contain;`
+    img.style = `background-image: url(${playList[currenIndexSong].imgPath});`
     aud.play();
+    flag = true;
+    runSong.style = `background-image: url(./assets/stop.svg);`
 });
 
+let heard = false;
 like.addEventListener(`click`, function () {
-    like.style = `background-image: url(./assets/like-black.svg);`  
+    if (heard == false) {
+        like.style = `background-image: url(./assets/like-black.svg);`
+        heard = true;
+    } else {
+        like.style = `background-image: url(./assets/like-white.svg);`
+        heard = false;
+    }
+
 });
 
 
