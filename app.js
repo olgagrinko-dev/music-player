@@ -6,35 +6,32 @@
 const leftSong = document.querySelector(`.img-group-1`);
 const runSong = document.querySelector(`.img-play`);
 const rightSong = document.querySelector(`.img-group-2`);
-
-const aud = document.querySelector(`audio`);
-const treak = document.querySelector(`.treak`);
 const artist = document.querySelector(`.artist`);
+const treak = document.querySelector(`.treak`);
 const img = document.querySelector(`.img-wrapper`);
-const like = document.querySelector(`.img-like-white`);
-const preview = document.querySelector(`.img-preview`);
+const aud = document.querySelector(`audio`);
+const progressContainer = document.querySelector(`.progress_container`);
+const progress = document.querySelector(`.progress`);
 const time = document.getElementById(`time`);
-
-
-let flag = false;
+const like = document.querySelector(`.img-like-white`);
 
 const playList = [
     {
-        nameSong: `Удача`,
+        nameSong: `Тебя удача найдет`,
         path: `./music/Удача.mp3`,
         artist: `Denis Klyaver`,
         imgPath: `./img/Denis_Klyaver.jpg`,
     },
 
     {
-        nameSong: `Жить`,
+        nameSong: `Жить так жить`,
         path: `./music/Жить.mp3`,
         artist: `Oleg Gazmanov`,
         imgPath: `./img/Oleg_Gazmanov.jpg`,
     },
 
     {
-        nameSong: `Сочи`,
+        nameSong: `Город Сочи`,
         path: `./music/Сочи.mp3`,
         artist: `Trofim`,
         imgPath: `./img/Trofim.jpg`,
@@ -42,6 +39,7 @@ const playList = [
 ]
 
 let currenIndexSong = 0;
+let flag = false;
 
 runSong.addEventListener(`click`, function () {
     aud.src = playList[currenIndexSong].path;
@@ -84,6 +82,8 @@ rightSong.addEventListener(`click`, function () {
     runSong.style = `background-image: url(./assets/stop.svg);`
 });
 
+
+
 let heard = false;
 like.addEventListener(`click`, function () {
     if (heard == false) {
@@ -93,9 +93,42 @@ like.addEventListener(`click`, function () {
         like.style = `background-image: url(./assets/like-white.svg);`
         heard = false;
     }
-
 });
 
+function updateProgress(event) {
+    const { duration, currentTime } = event.srcElement;
+}
+aud.addEventListener('timeupdate', updateProgress)
 
+function updateProgress(event) {
+    const { duration, currentTime } = event.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+}
 
+function setProgress(event) {
+    const width = this.clientWidth;
+    const clickX = event.offsetX;
+    const duration = aud.duration;
+    aud.currentTime = (clickX / width) * duration;
+}
+progressContainer.addEventListener(`click`, setProgress);
 
+// aud.addEventListener(`ended`, rightSong);
+
+aud.addEventListener(`timeupdate`, (event) => {
+    const durationTime = event.target.duration;
+    const currentTime = event.target.currentTime;
+    const progressPercent = (currentTime / durationTime) * 100;
+    progress.style.width = `${progressPercent}%`;
+
+    const begin = aud.currentTime;
+
+    const timeMin = Math.floor(begin / 60);
+    const timeSec = Math.floor(begin % 60);
+
+    const min = timeMin < 10 ? `0${timeMin}` : `${timeMin}`;
+    const sec = timeSec < 10 ? `0${timeSec}` : `${timeSec}`;
+
+    time.innerHTML = `${min}:${sec}`;
+});

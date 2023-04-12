@@ -14,8 +14,8 @@ body {
     display: flex;
     align-items: center;
     width: 1028px;
-    height: 562px;   
-    background-color: #454545;   
+    height: 562px;
+    background-color: #454545;
 }
 
 .player {
@@ -31,9 +31,9 @@ body {
 .img-wrapper {
     background-image: url(./assets/thumbnail-img.svg);
     background-repeat: no-repeat;
+    background-size: cover;
     width: 169px;
     height: 169px;
-    background-size: cover;
     border-radius: 14px 0 0 14px;
 }
 
@@ -49,19 +49,20 @@ body {
 
 .artist {
     font: 700 18px 'Inter';
-    color: #000000;   
+    color: #000000;
 }
 
 .img-vector {
     background-image: url(./assets/Vector.svg);
     background-repeat: no-repeat;
+    background-size: cover;
     width: 21px;
-    height: 21px;   
+    height: 21px;
 }
 
 .trek {
     font: 400 14px 'Inter';
-    color: #454545;   
+    color: #454545;
 }
 
 .preview {
@@ -70,26 +71,31 @@ body {
     align-items: center;
 }
 
-.img-preview {
-    background-image: url(./assets/preview.svg);
-    background-repeat: no-repeat;
+.progress_container {
     width: 257px;
     height: 3px;
     margin-top: 25px;
+    background-color: #DADADA;
+}
+
+.progress {
+    background-color: #B45353;
+    height: 3px;
+    width: 2px
 }
 
 #time {
     font-family: 400 12px 'Inter';
-    color: #454545; 
-    margin-top: 25px;  
+    color: #454545;
+    margin-top: 25px;
     margin-left: 20px;
 }
 
 .play {
     display: flex;
-    align-items: center;  
+    align-items: center;
     justify-content: space-between;
-    margin-top: 15px;    
+    margin-top: 15px;
 }
 
 .img-icon {
@@ -97,7 +103,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     width: 20px;
-    height: 20px;   
+    height: 20px;
     display: flex;
     align-items: center;
 }
@@ -107,9 +113,9 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     width: 18px;
-    height: 10px;       
+    height: 10px;
     display: flex;
-    align-items: center;  
+    align-items: center;
 }
 
 .img-play {
@@ -117,7 +123,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     width: 35px;
-    height: 35px;   
+    height: 35px;
     display: flex;
     align-items: center;
 }
@@ -127,9 +133,9 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     width: 18px;
-    height: 10px;     
+    height: 10px;
     display: flex;
-    align-items: center;  
+    align-items: center;
 }
 
 .img-like-white {
@@ -137,7 +143,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     width: 20px;
-    height: 20px;    
+    height: 20px;
     display: flex;
-    align-items: center;   
+    align-items: center;
 }
